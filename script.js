@@ -1,65 +1,61 @@
-const risksByLocation = {
-  "sydney": ["heatwaves", "coastal flooding", "sea level rise", "storms"],
-  "brisbane": ["flooding", "heatwaves", "cyclones"],
-  "melbourne": ["heatwaves", "bushfire smoke", "flooding"],
-  "perth": ["drought", "heatwaves", "bushfires"],
-  "hobart": ["sea level rise", "seasonal shifts"],
-  "adelaide": ["heatwaves", "drought", "bushfires"],
-  "darwin": ["cyclones", "extreme heat", "flooding"],
-  "canberra": ["bushfires", "heatwaves", "smoke pollution"],
-  "gold coast": ["coastal erosion", "storms", "heatwaves"],
-  "newcastle": ["sea level rise", "flooding", "storms"]
-};
+document.getElementById("riskForm").addEventListener("submit", function (event) {
+  event.preventDefault();
 
+  const location = document.getElementById("location").value.toLowerCase();
+  const job = document.getElementById("job").value.toLowerCase();
+  const hobby = document.getElementById("hobby").value.toLowerCase();
 
-};
+  const locationRisks = {
+    "sydney": "more frequent flash floods and heatwaves affecting your home life",
+    "brisbane": "higher chances of cyclones and flooding near your home",
+    "melbourne": "unpredictable weather and hotter summers affecting daily life",
+    "perth": "drought conditions and rising bushfire risks in your area",
+    "hobart": "warmer temperatures and increased bushfire threats",
+    "adelaide": "more intense heatwaves and reduced water availability",
+    "darwin": "more extreme tropical storms and flooding risks",
+    "canberra": "hotter, drier seasons with a higher bushfire danger",
+    "gold coast": "coastal erosion and stronger storms threatening property",
+    "newcastle": "higher risks of storm surges and heat extremes"
+  };
 
-const risksByJob = {
-  "farmer": ["drought", "heatwaves", "flooding"],
-  "teacher": ["heatwaves", "bushfire smoke"],
-  "builder": ["heat stress", "construction delays", "storm damage"],
-  "nurse": ["heatwaves", "public health crises", "air quality"],
-  "chef": ["heat stress", "food supply disruptions"],
-  "electrician": ["blackouts", "heat stress", "storm damage"],
-  "firefighter": ["bushfires", "smoke inhalation", "heatwaves"],
-  "truck driver": ["flooded roads", "bushfire detours", "heat fatigue"],
-  "retail worker": ["heatwaves", "supply disruptions"],
-  "lifeguard": ["stronger rips", "beach closures", "heatwaves"]
-};
+  const jobRisks = {
+    "farmer": "increased droughts and unpredictable seasons will affect crop and livestock health",
+    "teacher": "school closures from extreme heat or floods may disrupt your work",
+    "builder": "extreme heat will limit safe workdays and increase storm damage repairs",
+    "nurse": "more frequent health emergencies during heatwaves will strain your workdays",
+    "chef": "supply chain disruptions from extreme weather may affect food availability",
+    "electrician": "damaged infrastructure and extreme weather will impact your job more often",
+    "firefighter": "bushfires will become more frequent and dangerous to manage",
+    "truck driver": "flooded roads and heat-damaged highways may delay or disrupt your work",
+    "retail worker": "supply shortages and disruptions could affect store operations",
+    "lifeguard": "rising temperatures and beach erosion may reduce safe beach days"
+  };
 
+  const hobbyRisks = {
+    "surfing": "coastal erosion and unstable conditions may make surfing harder to enjoy",
+    "gardening": "heat and water restrictions will make it harder to keep your garden healthy",
+    "camping": "bushfires and heatwaves will limit safe camping trips",
+    "cycling": "extreme heat and poor air quality may make cycling less safe",
+    "fishing": "warmer waters and species migration will affect fish availability",
+    "bushwalking": "fire bans and heat will reduce days suitable for walking",
+    "skiing": "shorter snow seasons will limit ski days in the Alps",
+    "swimming": "heatwaves may make outdoor pools unsafe or beaches unsafe to swim",
+    "photography": "natural places may change rapidly due to fire, drought, or floods",
+    "birdwatching": "species migration and habitat loss may reduce bird diversity in your area"
+  };
 
+  // Build the response sentence
+  const jobImpact = jobRisks[job] || "your job may be affected by extreme weather patterns";
+  const locationImpact = locationRisks[location] || "your area may experience more extreme weather";
+  const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions";
 
-const risksByHobby = {
-  "surfing": ["sea level rise", "ocean warming", "storms"],
-  "gardening": ["drought", "heatwaves", "seasonal change"],
-  "camping": ["bushfires", "storms", "heatwaves"],
-  "cycling": ["heatwaves", "flooded paths"],
-  "fishing": ["ocean warming", "species migration", "algal blooms"],
-  "bushwalking": ["bushfires", "trail closures", "heat stress"],
-  "skiing": ["reduced snow", "shorter seasons", "unpredictable weather"],
-  "swimming": ["water quality", "jellyfish blooms", "heatwaves"],
-  "photography": ["extreme weather", "hazardous visibility"],
-  "birdwatching": ["species migration", "habitat change"]
-};
+  const output = `As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`;
 
+  document.getElementById("output").textContent = output;
+  document.getElementById("resultCard").classList.remove("hidden");
+});
 
-
-document.getElementById("riskForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // Convert user input to lowercase
-  const loc = document.getElementById("location").value.trim().toLowerCase();
-  const job = document.getElementById("job").value.trim().toLowerCase();
-  const hobby = document.getElementById("hobby").value.trim().toLowerCase();
-
-  const locRisks = risksByLocation[loc] || [];
-  const jobRisks = risksByJob[job] || [];
-  const hobbyRisks = risksByHobby[hobby] || [];
-
-  const allRisks = [...new Set([...locRisks, ...jobRisks, ...hobbyRisks])];
-
-  const output = `
-    <h2>Your Climate Risk Summary</h2>
-    <p><strong>Location:</strong> ${loc}</p>
-    <p><strong>Job:</strong> ${job}</p>
-    <p
+// Helper to capitalize location names
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

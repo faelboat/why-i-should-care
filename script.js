@@ -1,5 +1,8 @@
 document.getElementById("riskForm").addEventListener("submit", function (event) {
   event.preventDefault();
+  // Your existing code to handle form data and display results
+});
+
 
   const location = document.getElementById("location").value.toLowerCase();
   const job = document.getElementById("job").value.toLowerCase();

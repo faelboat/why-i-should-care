@@ -3,8 +3,14 @@ const risksByLocation = {
   "brisbane": ["flooding", "heatwaves", "cyclones"],
   "melbourne": ["heatwaves", "bushfire smoke", "flooding"],
   "perth": ["drought", "heatwaves", "bushfires"],
-  "hobart": ["sea level rise", "seasonal shifts"]
+  "hobart": ["sea level rise", "seasonal shifts"],
+  "adelaide": ["heatwaves", "drought", "bushfires"],
+  "darwin": ["cyclones", "extreme heat", "flooding"],
+  "canberra": ["bushfires", "heatwaves", "smoke pollution"],
+  "gold coast": ["coastal erosion", "storms", "heatwaves"],
+  "newcastle": ["sea level rise", "flooding", "storms"]
 };
+
 
 };
 
@@ -13,16 +19,30 @@ const risksByJob = {
   "teacher": ["heatwaves", "bushfire smoke"],
   "builder": ["heat stress", "construction delays", "storm damage"],
   "nurse": ["heatwaves", "public health crises", "air quality"],
-  "chef": ["heat stress", "food supply disruptions"]
+  "chef": ["heat stress", "food supply disruptions"],
+  "electrician": ["blackouts", "heat stress", "storm damage"],
+  "firefighter": ["bushfires", "smoke inhalation", "heatwaves"],
+  "truck driver": ["flooded roads", "bushfire detours", "heat fatigue"],
+  "retail worker": ["heatwaves", "supply disruptions"],
+  "lifeguard": ["stronger rips", "beach closures", "heatwaves"]
 };
+
+
 
 const risksByHobby = {
   "surfing": ["sea level rise", "ocean warming", "storms"],
   "gardening": ["drought", "heatwaves", "seasonal change"],
   "camping": ["bushfires", "storms", "heatwaves"],
   "cycling": ["heatwaves", "flooded paths"],
-  "fishing": ["ocean warming", "species migration", "algal blooms"]
+  "fishing": ["ocean warming", "species migration", "algal blooms"],
+  "bushwalking": ["bushfires", "trail closures", "heat stress"],
+  "skiing": ["reduced snow", "shorter seasons", "unpredictable weather"],
+  "swimming": ["water quality", "jellyfish blooms", "heatwaves"],
+  "photography": ["extreme weather", "hazardous visibility"],
+  "birdwatching": ["species migration", "habitat change"]
 };
+
+
 
 document.getElementById("riskForm").addEventListener("submit", function (e) {
   e.preventDefault();

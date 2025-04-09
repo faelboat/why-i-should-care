@@ -51,12 +51,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-select {
-  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><polygon points="0,0 16,0 8,8" fill="%231b4024"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 0.7rem center;
-  background-size: 0.65rem auto;
-}
 
 
 button {

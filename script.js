@@ -1,6 +1,5 @@
 document.getElementById("riskForm").addEventListener("submit", function (event) {
   event.preventDefault();
-  // Your existing code to handle form data and display results
 
   const location = document.getElementById("location").value.toLowerCase();
   const job = document.getElementById("job").value.toLowerCase();
@@ -45,18 +44,17 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
     "birdwatching": "species migration and habitat loss may reduce bird diversity in your area"
   };
 
-  // Build the response sentence
-  const jobImpact = jobRisks[job] || "your job may be affected by extreme weather patterns"};
-  const locationImpact = locationRisks[location] || "your area may experience more extreme weather"};
-  const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions"};
+  const jobImpact = jobRisks[job] || "your job may be affected by extreme weather patterns";
+  const locationImpact = locationRisks[location] || "your area may experience more extreme weather";
+  const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions";
 
-  const output = `As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`};
+  const output = `As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");
-};
+});
 
 // Helper to capitalize location names
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
-};
+}

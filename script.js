@@ -53,9 +53,9 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");
-});
+};
 
 // Helper to capitalize location names
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
-}
+};

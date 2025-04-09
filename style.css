@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  margin: 40px;
+}
+
+h1 {
+  color: #2e7d32;
+}
+
+input, button {
+  padding: 8px;
+  margin-top: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#results {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+}

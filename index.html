@@ -29,4 +29,43 @@
 
       <label for="job">Job:</label>
       <select id="job" required>
-        <
+        <option value="">-- Choose your job --</option>
+        <option value="farmer">Farmer</option>
+        <option value="teacher">Teacher</option>
+        <option value="builder">Builder</option>
+        <option value="nurse">Nurse</option>
+        <option value="chef">Chef</option>
+        <option value="electrician">Electrician</option>
+        <option value="firefighter">Firefighter</option>
+        <option value="truck driver">Truck Driver</option>
+        <option value="retail worker">Retail Worker</option>
+        <option value="lifeguard">Lifeguard</option>
+      </select>
+
+      <label for="hobby">Hobby:</label>
+      <select id="hobby" required>
+        <option value="">-- Choose your hobby --</option>
+        <option value="surfing">Surfing</option>
+        <option value="gardening">Gardening</option>
+        <option value="camping">Camping</option>
+        <option value="cycling">Cycling</option>
+        <option value="fishing">Fishing</option>
+        <option value="bushwalking">Bushwalking</option>
+        <option value="skiing">Skiing</option>
+        <option value="swimming">Swimming</option>
+        <option value="photography">Photography</option>
+        <option value="birdwatching">Birdwatching</option>
+      </select>
+
+      <button type="submit">Check My Climate Risks</button>
+    </form>
+
+    <div id="resultCard" class="card hidden">
+      <h2>Your Climate Risk Summary</h2>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

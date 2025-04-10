@@ -13,7 +13,7 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
   const heatNote = getFutureHeatDays(location, age) || "";
   const seaLevelNote = getSeaLevelNote(location, age);
 
-  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatNote}${seaLevelNote}`;
+const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote}`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");

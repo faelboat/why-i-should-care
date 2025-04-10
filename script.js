@@ -10,15 +10,15 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
   const jobImpact = jobRisks[job] || "your job may be affected by extreme weather patterns";
   const locationImpact = locationRisks[location] || "your area may experience more extreme weather";
   const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions";
-  const heatNote = getFutureHeatDays(location, age) || "";
+  const heatWarning = getFutureHeatDays(location, age) || "";
   const seaLevelNote = getSeaLevelNote(location, age);
 
-  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatNote ? " " + heatNote : ""}${seaLevelNote}`;
+  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote}`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");
 
-  updateReferences(heatNote, seaLevelNote);
+  updateReferences(heatWarning, seaLevelNote);
 });
 
 function getAgeFraming(age) {
@@ -46,3 +46,93 @@ function getFutureHeatDays(location, age) {
   if (targetYear >= 2040 && targetYear <= 2059) {
     const increase = projection.projected - projection.current;
     return ` By the time you're 60 (in ${targetYear}), ${capitalize(location)} is projected to have around ${projection.projected} days over 40°C each year — an increase of ${increase} extreme heat days annually.`;
+  }
+  return null;
+}
+
+function getSeaLevelNote(location, age) {
+  const seaLevelData = {
+    "sydney": 0.65,
+    "brisbane": 0.70,
+    "melbourne": 0.63,
+    "perth": 0.58,
+    "hobart": 0.61,
+    "adelaide": 0.60,
+    "darwin": 0.70,
+    "gold coast": 0.75,
+    "newcastle": 0.65,
+    "canberra": 0.0
+  };
+
+  const riseBy2100 = seaLevelData[location];
+  if (riseBy2100 === undefined) return "";
+
+  const currentYear = new Date().getFullYear();
+  const targetYear = currentYear + (60 - age);
+  const proportion = Math.min((targetYear - currentYear) / (2100 - currentYear), 1);
+  const estimatedRise = (riseBy2100 * proportion).toFixed(2);
+
+  return riseBy2100 > 0 ? ` By the time you are 60, sea levels near ${capitalize(location)} are projected to rise by around ${estimatedRise} metres.` : "";
+}
+
+function updateReferences(heatWarning, seaLevelNote) {
+  const referenceList = document.getElementById("referenceList");
+  referenceList.innerHTML = "";
+
+  const references = [];
+
+  if (heatWarning) {
+    references.push({
+      text: "Heat data based on RCP 8.5 projections from the Australian Climate Data Explorer.",
+      url: "https://climatechangeinaustralia.gov.au"
+    });
+  }
+
+  if (seaLevelNote) {
+    references.push({
+      text: "Sea level rise data based on RCP 8.5 projections from the CSIRO State of the Climate 2022.",
+      url: "https://www.csiro.au/en/research/environmental-impacts/climate-change/state-of-the-climate"
+    });
+  }
+
+  references.forEach(ref => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = ref.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = ref.text;
+    li.appendChild(link);
+    referenceList.appendChild(li);
+  });
+
+  if (references.length > 0) {
+    document.getElementById("dataReferences").classList.remove("hidden");
+  }
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Static impact data
+const locationRisks = {
+  "sydney": "more frequent flash floods and heatwaves affecting your home life",
+  "brisbane": "higher chances of cyclones and flooding near your home",
+  "melbourne": "unpredictable weather and hotter summers affecting daily life",
+  "perth": "drought conditions and rising bushfire risks in your area",
+  "hobart": "warmer temperatures and increased bushfire threats",
+  "adelaide": "more intense heatwaves and reduced water availability",
+  "darwin": "more extreme tropical storms and flooding risks",
+  "canberra": "hotter, drier seasons with a higher bushfire danger",
+  "gold coast": "coastal erosion and stronger storms threatening property",
+  "newcastle": "higher risks of storm surges and heat extremes"
+};
+
+const jobRisks = {
+  "farmer": "increasing droughts and unpredictable seasons will challenge your crop and livestock yields, putting pressure on income and planning",
+  "teacher": "extreme heat or floods may disrupt school operations, increasing teaching pressures and interrupting students’ learning",
+  "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
+  "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on
+::contentReference[oaicite:0]{index=0}
+ 

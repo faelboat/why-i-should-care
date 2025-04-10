@@ -117,4 +117,40 @@ function capitalize(str) {
 
 // Replace with your full lists:
 const locationRisks = {
-  "perth": "more days of extreme heat, bushfire
+  "perth": "more days of extreme heat, bushfire risks, and water stress",
+  "sydney": "higher heat and humidity, coastal flooding, and air quality challenges",
+  "melbourne": "longer heatwaves, reduced rainfall, and infrastructure strain",
+  "brisbane": "tropical storms, floods, and more extremely hot days",
+  "adelaide": "higher fire danger and heat-related health risks",
+  "hobart": "less snow in highlands and increasing heat stress",
+  "darwin": "extreme heat and humidity affecting daily life and health",
+  "canberra": "bushfires, smoke events, and hotter summers",
+  "gold coast": "coastal erosion, flooding, and summer heat stress",
+  "newcastle": "sea level rise, erosion, and flood-prone infrastructure"
+};
+
+const jobRisks = {
+  "farmer": "reduced crop yields and increased drought-related losses",
+  "teacher": "disruptions from heatwaves, floods, and bushfires impacting school operations",
+  "construction worker": "unsafe workdays due to extreme heat and poor air quality",
+  "nurse": "increased demand during heatwaves and extreme weather health crises",
+  "firefighter": "higher frequency of extreme fire events, with growing risks to safety",
+  "bartender": "unpredictable trade during heatwaves or storm-related disruptions",
+  "scientist": "research interruptions or changing focus toward climate adaptation",
+  "tour guide": "reduced visitor access during extreme weather and natural disasters",
+  "electrician": "more emergency callouts and heat-related safety concerns",
+  "student": "hotter classrooms, disruptions, and increasing pressure to adapt to a changing future"
+};
+
+const hobbyRisks = {
+  "surfing": "less reliable surf conditions and more beach erosion",
+  "gardening": "water restrictions and extreme heat affecting plant health",
+  "camping": "more bushfire warnings and unsafe camping conditions",
+  "cycling": "hotter days and air quality issues making outdoor activity harder",
+  "fishing": "warming waters and stressed fish populations",
+  "bushwalking": "trail closures during fire season and storm damage",
+  "skiing": "shorter snow seasons and reduced snow cover",
+  "swimming": "more jellyfish, algae blooms, and beach closures",
+  "photography": "extreme conditions limiting outdoor opportunities and damaging gear",
+  "birdwatching": "changing migration patterns and species stress from habitat loss"
+};

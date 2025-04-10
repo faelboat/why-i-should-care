@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("riskForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -154,3 +155,4 @@ const hobbyRisks = {
   "photography": "extreme conditions limiting outdoor opportunities and damaging gear",
   "birdwatching": "changing migration patterns and species stress from habitat loss"
 };
+});

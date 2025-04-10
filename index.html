@@ -7,73 +7,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Why Should I Care?</h1>
-    <p class="intro">Why should I care about future climate, how will it affect me?</p>
-    
+  <main class="container">
+    <h1>Why Should I Care About Climate Change?</h1>
     <form id="riskForm">
-      <label for="location">Location:</label>
-      <select id="location" required>
-        <option value="">-- Choose your location --</option>
-        <option value="sydney">Sydney</option>
-        <option value="brisbane">Brisbane</option>
-        <option value="melbourne">Melbourne</option>
-        <option value="perth">Perth</option>
-        <option value="hobart">Hobart</option>
-        <option value="adelaide">Adelaide</option>
-        <option value="darwin">Darwin</option>
-        <option value="canberra">Canberra</option>
-        <option value="gold coast">Gold Coast</option>
-        <option value="newcastle">Newcastle</option>
-      </select>
-
-      <label for="job">Job:</label>
-      <select id="job" required>
-        <option value="">-- Choose your job --</option>
-        <option value="farmer">Farmer</option>
-        <option value="teacher">Teacher</option>
-        <option value="builder">Builder</option>
-        <option value="nurse">Nurse</option>
-        <option value="chef">Chef</option>
-        <option value="electrician">Electrician</option>
-        <option value="firefighter">Firefighter</option>
-        <option value="truck driver">Truck Driver</option>
-        <option value="retail worker">Retail Worker</option>
-        <option value="lifeguard">Lifeguard</option>
-      </select>
-
-      <label for="hobby">Hobby:</label>
-      <select id="hobby" required>
-        <option value="">-- Choose your hobby --</option>
-        <option value="surfing">Surfing</option>
-        <option value="gardening">Gardening</option>
-        <option value="camping">Camping</option>
-        <option value="cycling">Cycling</option>
-        <option value="fishing">Fishing</option>
-        <option value="bushwalking">Bushwalking</option>
-        <option value="skiing">Skiing</option>
-        <option value="swimming">Swimming</option>
-        <option value="photography">Photography</option>
-        <option value="birdwatching">Birdwatching</option>
-      </select>
-
       <label for="age">Your Age:</label>
-      <input type="number" id="age" name="age" min="1" max="120" required />
+      <input type="number" id="age" name="age" required />
 
-      <button type="submit">Should I care?</button>
+      <label for="location">Your Location (e.g., Sydney):</label>
+      <input type="text" id="location" name="location" required />
+
+      <label for="job">Your Job (e.g., teacher):</label>
+      <input type="text" id="job" name="job" required />
+
+      <label for="hobby">Your Favorite Hobby (e.g., hiking):</label>
+      <input type="text" id="hobby" name="hobby" required />
+
+      <button type="submit">Show Me</button>
     </form>
 
-    <div id="resultCard" class="card hidden">
-      <h2>Yes, you should care</h2>
-      <div id="output"></div>
+    <div id="resultCard" class="hidden">
+      <p id="output"></p>
     </div>
 
     <div id="dataReferences" class="hidden">
-      <h4>Data Sources:</h4>
+      <h3>Data Sources</h3>
       <ul id="referenceList"></ul>
     </div>
-  </div>
+  </main>
 
+  <!-- ✅ JavaScript goes at the end -->
   <script src="script.js"></script>
 </body>
 </html>

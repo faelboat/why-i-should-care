@@ -1,4 +1,5 @@
-document.getElementById("riskForm").addEventListener("submit", function (event) {
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("riskForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const age = parseInt(document.getElementById("age").value);
@@ -135,3 +136,4 @@ const jobRisks = {
   "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
   "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on"
 };
+  });

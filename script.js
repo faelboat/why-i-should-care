@@ -18,18 +18,20 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
     "newcastle": "higher risks of storm surges and heat extremes"
   };
 
-  const jobRisks = {
-    "farmer": "increased droughts and unpredictable seasons will affect crop and livestock health",
-    "teacher": "school closures from extreme heat or floods may disrupt your work",
-    "builder": "extreme heat will limit safe workdays and increase storm damage repairs",
-    "nurse": "more frequent health emergencies during heatwaves will strain your workdays",
-    "chef": "supply chain disruptions from extreme weather may affect food availability",
-    "electrician": "damaged infrastructure and extreme weather will impact your job more often",
-    "firefighter": "bushfires will become more frequent and dangerous to manage",
-    "truck driver": "flooded roads and heat-damaged highways may delay or disrupt your work",
-    "retail worker": "supply shortages and disruptions could affect store operations",
-    "lifeguard": "rising temperatures and beach erosion may reduce safe beach days"
-  };
+const jobRisks = {
+  "farmer": "increasing droughts and unpredictable seasons will challenge your crop and livestock yields, putting pressure on income and planning",
+  "teacher": "extreme heat or floods may disrupt school operations, increasing teaching pressures and interrupting students’ learning",
+  "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
+  "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on healthcare workers",
+  "chef": "supply chain disruptions and rising food costs from extreme weather may limit ingredient availability and affect business operations",
+  "electrician": "storm damage and heatwaves may increase infrastructure failures, leading to more emergency callouts and complex, urgent work",
+  "firefighter": "longer bushfire seasons and more intense fires will demand more frequent, high-risk deployments, increasing physical and emotional stress",
+  "truck driver": "flooded roads and damaged highways will delay deliveries and force route changes, disrupting your schedule and earnings",
+  "retail worker": "supply shortages and extreme weather events may disrupt store operations, creating stressful work environments and irregular hours",
+  "lifeguard": "rising temperatures and beach erosion may reduce safe beach days, changing patrol routines and increasing safety risks",
+  "office worker": "extreme heat and power outages may disrupt indoor workspaces, while climate-related events can affect commuting, operations, and employee wellbeing"
+};
+
 
   const hobbyRisks = {
     "surfing": "coastal erosion and unstable conditions may make surfing harder to enjoy",

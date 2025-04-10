@@ -136,4 +136,12 @@ const jobRisks = {
   "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
   "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on"
 };
+
+  const hobbyRisks = {
+  "surfing": "changing ocean conditions and sea level rise may affect your favourite beaches",
+  "gardening": "longer droughts and heat may make it harder to grow plants",
+  "hiking": "bushfire risk and extreme heat may limit when and where you can go",
+  "cycling": "hotter days and more storms could make rides less safe or enjoyable",
+  "photography": "natural landscapes may change and outdoor shoots may become more weather-dependent"
+};
   });

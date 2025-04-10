@@ -137,11 +137,17 @@ const jobRisks = {
   "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on"
 };
 
-  const hobbyRisks = {
-  "surfing": "changing ocean conditions and sea level rise may affect your favourite beaches",
-  "gardening": "longer droughts and heat may make it harder to grow plants",
-  "hiking": "bushfire risk and extreme heat may limit when and where you can go",
-  "cycling": "hotter days and more storms could make rides less safe or enjoyable",
-  "photography": "natural landscapes may change and outdoor shoots may become more weather-dependent"
+const hobbyRisks = {
+  "surfing": "sea level rise and stronger storms may make conditions less safe and beaches more eroded",
+  "gardening": "extreme heat, water restrictions, and unpredictable weather could make gardening more difficult",
+  "camping": "higher bushfire risk and extreme heat can make outdoor trips more dangerous or limited",
+  "cycling": "more hot days and poor air quality may make long rides uncomfortable or unsafe",
+  "fishing": "warming oceans and ecosystem shifts could reduce fish stocks and change where you can fish",
+  "bushwalking": "greater fire danger, heatwaves, and track closures could limit access to nature",
+  "skiing": "warmer winters and less snowfall will reduce ski season length and snow reliability",
+  "swimming": "more extreme heat may increase pool closures, and ocean swimming could be affected by water quality and jellyfish",
+  "photography": "changing environments and harsher light conditions may affect outdoor photography opportunities",
+  "birdwatching": "species migration and habitat loss could reduce bird diversity in familiar areas"
 };
+
   });

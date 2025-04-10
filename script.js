@@ -133,6 +133,6 @@ const jobRisks = {
   "farmer": "increasing droughts and unpredictable seasons will challenge your crop and livestock yields, putting pressure on income and planning",
   "teacher": "extreme heat or floods may disrupt school operations, increasing teaching pressures and interrupting students’ learning",
   "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
-  "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on
+  "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on"
 ::contentReference[oaicite:0]{index=0}
  

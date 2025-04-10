@@ -48,7 +48,7 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
   const locationImpact = locationRisks[location] || "your area may experience more extreme weather";
   const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions";
 
-  const output = `As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`;
+const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote}`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");

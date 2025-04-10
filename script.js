@@ -135,4 +135,4 @@ const jobRisks = {
   "builder": "extreme heat and storms will reduce safe workdays and increase demand for costly repairs, making your schedule more unpredictable",
   "nurse": "more frequent health emergencies during extreme weather will strain hospital systems and increase pressure on"
 ::contentReference[oaicite:0]{index=0}
- 
+};

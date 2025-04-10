@@ -13,7 +13,7 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
   const heatNote = getFutureHeatDays(location, age) || "";
   const seaLevelNote = getSeaLevelNote(location, age);
 
-const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote}`;
+  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatNote ? " " + heatNote : ""}${seaLevelNote}`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");
@@ -46,76 +46,3 @@ function getFutureHeatDays(location, age) {
   if (targetYear >= 2040 && targetYear <= 2059) {
     const increase = projection.projected - projection.current;
     return ` By the time you're 60 (in ${targetYear}), ${capitalize(location)} is projected to have around ${projection.projected} days over 40°C each year — an increase of ${increase} extreme heat days annually.`;
-  }
-  return null;
-}
-
-function getSeaLevelNote(location, age) {
-  const seaLevelData = {
-    "sydney": 0.65,
-    "brisbane": 0.70,
-    "melbourne": 0.63,
-    "perth": 0.58,
-    "hobart": 0.61,
-    "adelaide": 0.60,
-    "darwin": 0.70,
-    "gold coast": 0.75,
-    "newcastle": 0.65,
-    "canberra": 0.0
-  };
-
-  const riseBy2100 = seaLevelData[location];
-  if (riseBy2100 === undefined) return "";
-
-  const currentYear = new Date().getFullYear();
-  const targetYear = currentYear + (60 - age);
-  const proportion = Math.min((targetYear - currentYear) / (2100 - currentYear), 1);
-  const estimatedRise = (riseBy2100 * proportion).toFixed(2);
-
-  return riseBy2100 > 0 ? ` By the time you are 60, sea levels near ${capitalize(location)} are projected to rise by around ${estimatedRise} metres.` : "";
-}
-
-function updateReferences(heatNote, seaLevelNote) {
-  const referenceList = document.getElementById("referenceList");
-  referenceList.innerHTML = "";
-
-  const references = [];
-
-  if (heatNote) {
-    references.push({
-      text: "Heat data based on RCP 8.5 projections from the Australian Climate Data Explorer.",
-      url: "https://climatechangeinaustralia.gov.au"
-    });
-  }
-
-  if (seaLevelNote) {
-    references.push({
-      text: "Sea level rise data based on RCP 8.5 projections from the CSIRO State of the Climate 2022.",
-      url: "https://www.csiro.au/en/research/environmental-impacts/climate-change/state-of-the-climate"
-    });
-  }
-
-  references.forEach(ref => {
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = ref.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = ref.text;
-    li.appendChild(link);
-    referenceList.appendChild(li);
-  });
-
-  if (references.length > 0) {
-    document.getElementById("dataReferences").classList.remove("hidden");
-  }
-}
-
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-// Static impact data
-const locationRisks = { /* same as yours */ };
-const jobRisks = { /* same as yours */ };
-const hobbyRisks = { /* same as yours */ };

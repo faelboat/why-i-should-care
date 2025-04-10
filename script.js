@@ -1,10 +1,23 @@
 document.getElementById("riskForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
+  const age = parseInt(document.getElementById("age").value);
   const location = document.getElementById("location").value.toLowerCase();
   const job = document.getElementById("job").value.toLowerCase();
   const hobby = document.getElementById("hobby").value.toLowerCase();
 
+function getAgeFraming(age) {
+  if (age < 18) {
+    return "As a young person, you’ll live through the most significant changes this century.";
+  } else if (age < 40) {
+    return "You’ll experience growing impacts through your working life and beyond.";
+  } else if (age < 65) {
+    return "You’ll see more frequent disruptions in coming decades, especially in your home and work life.";
+  } else {
+    return "Even if you won’t face the full effects yourself, climate change will deeply affect younger generations, including your family and community.";
+  }
+}
+  
   const locationRisks = {
     "sydney": "more frequent flash floods and heatwaves affecting your home life",
     "brisbane": "higher chances of cyclones and flooding near your home",
@@ -50,7 +63,8 @@ const jobRisks = {
   const locationImpact = locationRisks[location] || "your area may experience more extreme weather";
   const hobbyImpact = hobbyRisks[hobby] || "your hobby may be harder to enjoy in changing conditions";
 
-  const output = `As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`;
+ const ageFraming = getAgeFraming(age);
+const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");

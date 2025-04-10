@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const heatWarning = getFutureHeatDays(location, age) || "";
   const seaLevelNote = getSeaLevelNote(location, age);
 
-  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote}`;
+  const output = `${ageFraming} As a ${job} living in ${capitalize(location)}, you may face ${jobImpact}, with ${locationImpact}, and ${hobbyImpact}.${heatWarning ? " " + heatWarning : ""}${seaLevelNote ? " " + seaLevelNote : ""}`;
 
   document.getElementById("output").textContent = output;
   document.getElementById("resultCard").classList.remove("hidden");
@@ -42,7 +42,10 @@ function getFutureHeatDays(location, age) {
   if (!projection) return null;
 
   const currentYear = new Date().getFullYear();
-  const targetYear = currentYear + (60 - age);
+  const targetAge = 60;
+  if (age >= targetAge) return null; // Too late to project for age 60
+
+  const targetYear = currentYear + (targetAge - age);
 
   if (targetYear >= 2040 && targetYear <= 2059) {
     const increase = projection.projected - projection.current;
@@ -50,6 +53,7 @@ function getFutureHeatDays(location, age) {
   }
   return null;
 }
+
 
 function getSeaLevelNote(location, age) {
   const seaLevelData = {
